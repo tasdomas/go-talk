@@ -1,0 +1,82 @@
+Juju
+Extending go
+6 Oct 2015
+
+Domas Monkus
+Canonical
+domas.monkus@canonical.com
+http://domas.monkus.lt
+@tasdomas
+
+* About me
+- live in Vilnius
+- work for Canonical
+- 3 yrs go experience
+- previous to that: c, c++, python
+
+* What is juju?
+
+.image juju.png _ 300
+
+- A cloud orchestration tool from *Canonical*.
+- Allows you to configure, manage and scale services (known as charms) in a cloud environment.
+- One of the largest projects written in go (*120k+*lines*of*go*madness!*).
+- Rewritten from python.
+
+* A short demo
+
+* Managing goroutines - gopkg.in/tomb.v2
+
+- goroutines are cheap
+- goroutines are not easy to manage (esp. *100s* of them)
+- Forced shutdowns vs error conditions
+
+* Control worker lifetimes
+
+.image goroutines-kill.png _ 400
+
+* Example
+.play tomb.go /START OMIT/,/END OMIT/
+
+* Catch worker errors
+
+.image goroutines-error.png _ 400
+
+* Example
+.play tomb_shutdown.go /START OMIT/,/END OMIT/
+
+* Error handling - github.com/juju/errors
+
+- `error` is very simple
+- `error` is not very helpful in root cause analysis
+- we need error tracing
+- we need error annotations
+
+  os.ErrNotExist
+
+sometimes means
+
+  errors.New("config file blah.yaml not found")
+
+* Example
+.play error.go /START OMIT/,/END OMIT/
+
+* Testing - gopkg.in/check.v1
+
+- we need test suites
+- we need test suite setups and teardowns
+- we need test setups and teardowns
+
+* Example
+
+.code test.go /START OMIT/,/END OMIT/
+
+* Other useful juju packages
+
+- github.com/juju/schema - coercing dynamic structures into known forms
+- github.com/juju/deputy - smart os/exec
+- github.com/juju/ratelimit - ratelimiting
+- githug.com/juju/loggo - module-level logging
+- launchpad.net/gnuflag - gnu format flags
+- gopkg.in - package api version locking
+- launchpad.net/godeps - repeatable builds
