@@ -63,9 +63,7 @@ sometimes means
 
 * Testing - gopkg.in/check.v1
 
-- we need test suites
-- we need test suite setups and teardowns
-- we need test setups and teardowns
+- we need fixtures!
 
 * Example
 
