@@ -78,3 +78,7 @@ sometimes means
 - launchpad.net/gnuflag - gnu format flags
 - gopkg.in - package api version locking
 - launchpad.net/godeps - repeatable builds
+
+* Talk source files
+
+Find the talk source files at [[https://github.com/tasdomas/go-talk]]
